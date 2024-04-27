@@ -6,7 +6,7 @@
 #    By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 17:24:12 by rpandipe          #+#    #+#              #
-#    Updated: 2024/04/26 11:44:27 by rpandipe         ###   ########.fr        #
+#    Updated: 2024/04/27 16:39:58 by rpandipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT		= libft.a
 CC			= cc
 CFLAG		= -Wall -Werror -Wextra -g
 RM 			= rm -rf
-SRCS		= main.c mandelbrot.c utils.c plot_pixel.c
+SRCS		= main.c mandelbrot.c utils.c plot_pixel.c events.c
 OBJS		= $(SRCS:.c=.o)
 
 all : $(NAME)

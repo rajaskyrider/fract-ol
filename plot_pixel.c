@@ -6,13 +6,13 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 09:04:23 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/27 11:04:25 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/27 16:47:01 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-unsigned int pretty_colors(int iter)
+int pretty_colors(int iter)
 {
     double norm_i;
     double adj_i;
@@ -20,35 +20,26 @@ unsigned int pretty_colors(int iter)
     double S;
 
     N = 500;
-    S = 2;
+    S = 40;
     norm_i = (double)iter / MAX_ITERATIONS;
     adj_i = pow(pow(norm_i, S) * N, 1.5);
     adj_i = fmod(adj_i, N);
-    return (unsigned int)adj_i;
+    return (int)adj_i;
 }
 
-unsigned int		get_color(int iter)
+unsigned int	get_color(int iter, t_data *data)
 {
-	int	alpha;
-	int	red;
-	int	green;
-	int	blue;
-
-	alpha = 255;
 	if (iter == MAX_ITERATIONS)
-		return(0xFF000000);
-	iter = pretty_colors(iter);
-	red = iter * 128 % 	256;
-	green = iter * 64 % 256;
-	blue = iter * 192 % 256;
-	return ((alpha << 24) | (red << 16) | (green << 8) | blue);
+		return (0xFF000000);
+	return (unsigned int)scale(iter, 0, data->c_switch, 0xFFEEEEEE, 0xFF010000);
 }
 
-void	plot_image(t_data *data, int (*plot_func)(double, double))
+void	plot_image(t_data *data, int (*plot_func)(double, double, t_data *))
 {
 	int	x;
 	int	y;
 	int	iter;
+	//int cc;
 	unsigned int color;
 
 	x = 0;
@@ -60,9 +51,8 @@ void	plot_image(t_data *data, int (*plot_func)(double, double))
 		y = 0;
 		while (y < WINDOW_HEIGHT)
 		{
-			iter = plot_func(x, y);
-			color = get_color(iter);
-			//color = (int)scale(iter, 0, 42, 0xFF000000, 0xFFFFFFFF);
+			iter = plot_func(x, y, data);
+			color = get_color(iter, data);
 			data->img_bfr[y * WINDOW_WIDTH + x] = color;
 			y++;
 		}
