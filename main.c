@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/27 17:51:29 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 09:45:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	initialize_mlx(t_data *data, char *name)
 	data->shift_x = 0;
 	data->shift_y = 0;
 	data->zoom = 1;
+	data->cursor_x = 0;
+	data->cursor_y = 0;
 }
 
 int	destroy_mlx(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/27 17:50:49 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 10:24:54 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
-# define MAX_ITERATIONS 500
+# define MAX_ITERATIONS 250
 
 typedef struct	s_data
 {
@@ -38,6 +38,8 @@ typedef struct	s_data
 	int		c_switch;
 	double	shift_x;
 	double	shift_y;
+	int		cursor_x;
+	int		cursor_y;
 	double	zoom;
 }				t_data;
 
