@@ -6,13 +6,13 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:19:19 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 09:55:58 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:30:06 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-int		plot_mandelbrot(double a, double b, t_data *data)
+int	plot_mandelbrot(double a, double b, t_data *data)
 {
 	double	x;
 	double	y;
@@ -22,7 +22,6 @@ int		plot_mandelbrot(double a, double b, t_data *data)
 
 	a = (scale(a, 0, WINDOW_WIDTH - 1, -2, 2) * data->zoom) + data->shift_x;
 	b = (scale(b, 0, WINDOW_HEIGHT - 1, 2, -2) * data->zoom) + data->shift_y;
-	//ft_printf("a :%d \t b :%d\n", a, b);
 	x = 0.0;
 	y = 0.0;
 	x2 = 0.0;

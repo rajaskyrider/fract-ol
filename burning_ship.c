@@ -6,13 +6,13 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:55:32 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 17:25:21 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:25:54 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-int		plot_burning_ship(double a, double b, t_data *data)
+int	plot_burning_ship(double a, double b, t_data *data)
 {
 	double	x;
 	double	y;
@@ -22,7 +22,6 @@ int		plot_burning_ship(double a, double b, t_data *data)
 
 	a = (scale(a, 0, WINDOW_WIDTH - 1, -2, 2) * data->zoom) + data->shift_x;
 	b = (scale(b, 0, WINDOW_HEIGHT - 1, -2, 2) * data->zoom) + data->shift_y;
-	//ft_printf("a :%d \t b :%d\n", a, b);
 	x = 0.0;
 	y = 0.0;
 	x2 = 0.0;

@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:11:57 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 17:21:45 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:27:24 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 void	initialize_mlx(t_data *data, char *name)
 {
 	data->mlx_ptr = mlx_init();
-    if (!data->mlx_ptr)
-        exit (1);
-    data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, name);
-    if (!data->win_ptr)
-    {
-        free(data->mlx_ptr);
-        exit (1);
-    }
+	if (!data->mlx_ptr)
+		exit (1);
+	data->win_ptr = mlx_new_window(data->mlx_ptr, \
+						WINDOW_WIDTH, WINDOW_HEIGHT, name);
+	if (!data->win_ptr)
+	{
+		free(data->mlx_ptr);
+		exit (1);
+	}
 	data->c_switch = 42;
 	data->shift_x = 0;
 	data->shift_y = 0;
