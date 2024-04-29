@@ -6,7 +6,7 @@
 #    By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 17:24:12 by rpandipe          #+#    #+#              #
-#    Updated: 2024/04/27 16:39:58 by rpandipe         ###   ########.fr        #
+#    Updated: 2024/04/29 17:20:21 by rpandipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT		= libft.a
 CC			= cc
 CFLAG		= -Wall -Werror -Wextra -g
 RM 			= rm -rf
-SRCS		= main.c mandelbrot.c utils.c plot_pixel.c events.c
+SRCS		= main.c init.c mandelbrot.c julia.c burning_ship.c utils.c plot_pixel.c events.c
 OBJS		= $(SRCS:.c=.o)
 
 all : $(NAME)
@@ -24,8 +24,8 @@ all : $(NAME)
 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJS)
-	@make -C libft
-	@cp libft/$(LIBFT) .
+	make -C libft
+	cp libft/$(LIBFT) .
 	$(CC) $(OBJS) $(LIBFT) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:

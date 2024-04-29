@@ -6,12 +6,12 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 09:38:53 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/27 15:25:35 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:12:48 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <math.h>
+/*#include <math.h>
 
 # define MAX_ITERATIONS 500
 
@@ -125,7 +125,7 @@ unsigned int get_color(int iter)
     return ((alpha << 24) | (red << 16) | (green << 8) | blue);
 }
 
-int	main()
+void	color()
 {
 	int	iter;
 	unsigned int color;
@@ -138,4 +138,30 @@ int	main()
 		printf("Color %X\n", color);
 		iter++;
 	}
+}*/
+
+int main(void)
+{
+    char *f = "1.414";
+    double  ans;
+    float     d;
+
+    ans = 0;
+    d = 1;
+    while (*f && *f != '.')
+    {
+        ans = ans * 10 + (*f - '0');
+        f++;
+    }
+    if (*f == '.')
+    {
+        ++f;
+        while (*f)
+        {
+            d *= 10;
+            ans = ans + ((*f - '0') / d);
+            f++;
+        }
+    }
+    printf("ans :%f", ans);
 }

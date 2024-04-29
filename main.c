@@ -6,30 +6,11 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 09:45:28 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:22:26 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
-void	initialize_mlx(t_data *data, char *name)
-{
-	data->mlx_ptr = mlx_init();
-    if (!data->mlx_ptr)
-        exit (1);
-    data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, name);
-    if (!data->win_ptr)
-    {
-        free(data->mlx_ptr);
-        exit (1);
-    }
-	data->c_switch = 42;
-	data->shift_x = 0;
-	data->shift_y = 0;
-	data->zoom = 1;
-	data->cursor_x = 0;
-	data->cursor_y = 0;
-}
 
 int	destroy_mlx(t_data *data)
 {
@@ -58,18 +39,14 @@ int		main(int argc, char **argv)
 	t_data	data;
 
 	if (argc == 2 && ft_strncmp(argv[1], "Mandelbrot", 10) == 0)
-	{
-		initialize_mlx(&data, argv[1]);
-		data.fractal = 1;
-		mandelbrot(&data);
-	}
+		init_mandelbrot(&data);
 	else if ((argc == 4 && ft_strncmp(argv[1], "Julia", 5) == 0))
-	{
-		initialize_mlx(&data, argv[1]);
-	}
+		init_julia(&data, argv);
+	else if (argc == 2 && ft_strncmp(argv[1], "Burningship", 12) == 0)
+		init_burning_ship(&data);
 	else
 	{
-		ft_printf("Invalid Input. Available options: \n\t Mandelbrot \n\t Julia <arg1> <arg2>\n");
+		ft_printf("Invalid Input.\nAvailable options: \n\t Mandelbrot \n\t Julia <arg1> <arg2>\n");
 		exit (1);
 	}
 	events_init(&data);

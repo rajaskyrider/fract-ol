@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 10:24:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:20:51 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
-# define MAX_ITERATIONS 250
+# define MAX_ITERATIONS 50
 
 typedef struct	s_data
 {
@@ -41,6 +41,8 @@ typedef struct	s_data
 	int		cursor_x;
 	int		cursor_y;
 	double	zoom;
+	double	julia_a;
+	double	julia_b;
 }				t_data;
 
 typedef	struct	s_color
@@ -51,6 +53,9 @@ typedef	struct	s_color
 	unsigned char	a;
 }				t_color;
 
+void	init_mandelbrot(t_data *data);
+void	init_julia(t_data *data, char **argv);
+void	init_burning_ship(t_data *data);
 void	mandelbrot(t_data *data);
 double	scale(double val, double fmin, double fmax, double tmin, double tmax);
 int		plot_mandelbrot(double a, double b, t_data *data);
@@ -58,5 +63,10 @@ void	plot_image(t_data *data, int (*plot_func)(double, double, t_data *));
 int		handle_key(int keysym, t_data *data);
 int		handle_mouse(int button, int x, int y, t_data *data);
 int		destroy_mlx(t_data *data);
+double  ft_atof(char *str, t_data *data);
+void	julia(t_data *data);
+int		plot_julia(double a, double b, t_data *data);
+void	burning_ship(t_data *data);
+int		plot_burning_ship(double a, double b, t_data *data);
 
 #endif
