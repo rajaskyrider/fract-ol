@@ -6,11 +6,12 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 16:23:44 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 17:19:52 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:26:26 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
+#include "stdio.h"
 
 void	re_render(t_data *data)
 {
@@ -48,17 +49,17 @@ int	handle_key(int keysym, t_data *data)
 
 int	handle_mouse(int button, int x, int y, t_data *data)
 {
-	//int	mouse_x1;
-	//int	mouse_y1;
-	//int	mouse_x2;
-	//int	mouse_y2;
+	double	mouse_x1;
+	double	mouse_y1;
+	double	mouse_x2;
+	double	mouse_y2;
 	//double	old_zoom;
 
 	//ft_printf("%d\n", button);
 	//ft_printf("x : %d\ty : %d\n", x, y);
 	//old_zoom = data->zoom;
-	//mouse_x1 = scale(x, 0, WINDOW_WIDTH - 1, -2, 2);
-	//mouse_y1 = scale(y, 0, WINDOW_HEIGHT - 1, 2, -2);
+	mouse_x1 = (scale((double)x, 0, WINDOW_WIDTH - 1, -2, 2) * data->zoom);
+	mouse_y1 = (scale((double)y, 0, WINDOW_HEIGHT - 1, 2, -2)* data->zoom);
 	(void)x;
 	(void)y;
 	if (button == Button4)
@@ -67,10 +68,13 @@ int	handle_mouse(int button, int x, int y, t_data *data)
 		data->zoom *= 1.05;
 	else
 		return (0);
-	//mouse_x2 = scale(x, 0, WINDOW_WIDTH - 1, -2, 2);
-	//mouse_y2 = scale(y, 0, WINDOW_HEIGHT - 1, 2, -2);
-	//data->shift_x += mouse_x1;
-	//data->shift_y += mouse_y1;
+	mouse_x2 = (scale(x, 0, WINDOW_WIDTH - 1, -2, 2) * data->zoom);
+	mouse_y2 = (scale(y, 0, WINDOW_HEIGHT - 1, 2, -2)* data->zoom);
+	data->shift_x += (mouse_x1 - mouse_x2);
+	data->shift_y += (mouse_y1 - mouse_y2);
+	//printf("mouse_x1 : %f\tmouse_y1 : %f\n", mouse_x1, mouse_y1);
+	//printf("mouse_x2 : %f\tmouse_y2 : %f\n", mouse_x2, mouse_y2);
+	//printf("shiftx : %f\tshifty : %f\n", data->shift_x, data->shift_y);
 	re_render(data);
 	return (0);
 }

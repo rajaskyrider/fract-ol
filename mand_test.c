@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 09:38:53 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 15:12:48 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 10:52:26 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void	color()
 	}
 }*/
 
-int main(void)
+void    atof()
 {
     char *f = "1.414";
     double  ans;
