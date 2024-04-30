@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:11:57 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/30 14:33:42 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:50:05 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	init_mandelbrot(t_data *data)
 	data->max_x = 2;
 	data->min_y = 2;
 	data->max_y = -2;
+	data->rx = 1;
+	data->ry = 1;
 	mandelbrot(data);
 }
 
@@ -51,6 +53,8 @@ void	init_julia(t_data *data, char **argv)
 	data->max_x = -2;
 	data->min_y = -2;
 	data->max_y = 2;
+	data->rx = -1;
+	data->ry = -1;
 	julia(data);
 }
 
@@ -62,5 +66,7 @@ void	init_burning_ship(t_data *data)
 	data->max_x = 2;
 	data->min_y = -2;
 	data->max_y = 2;
+	data->rx = 1;
+	data->ry = -1;
 	burning_ship(data);
 }

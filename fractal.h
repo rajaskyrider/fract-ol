@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/30 15:23:16 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:47:21 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct	s_data
 	double	zoom;
 	double	julia_a;
 	double	julia_b;
+	int		rx;
+	int		ry;
 }				t_data;
 
 typedef	struct	s_color
