@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:55:32 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 18:25:54 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:08:51 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	plot_burning_ship(double a, double b, t_data *data)
 	double	y2;
 	int		i;
 
-	a = (scale(a, 0, WINDOW_WIDTH - 1, -2, 2) * data->zoom) + data->shift_x;
-	b = (scale(b, 0, WINDOW_HEIGHT - 1, -2, 2) * data->zoom) + data->shift_y;
+	a = (scale(a, (double []){0, WINDOW_WIDTH - 1}, \
+				data->min_x, data->max_x) * data->zoom) + data->shift_x;
+	b = (scale(b, (double []){0, WINDOW_HEIGHT - 1}, \
+				data->min_y, data->max_y) * data->zoom) + data->shift_y;
 	x = 0.0;
 	y = 0.0;
 	x2 = 0.0;

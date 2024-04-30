@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 09:04:23 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 18:31:36 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:25:22 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ unsigned int	get_color(int iter, t_data *data)
 	(void)data;
 	if (iter == MAX_ITERATIONS)
 		return (0xFF000000);
-	return ((unsigned int)scale(iter, 0, \
-			data->c_switch, 0xFFEEEEEE, 0xFF010000));
+	return ((unsigned int)scale(iter, (double []){0, \
+			data->c_switch}, 0xFFEEEEEE, 0xFF010000));
 }
 
 void	plot_image(t_data *data, int (*plot_func)(double, double, t_data *))

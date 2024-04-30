@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 17:20:51 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:23:16 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
-# define MAX_ITERATIONS 50
+# define MAX_ITERATIONS 250
 
 typedef struct	s_data
 {
@@ -38,8 +38,10 @@ typedef struct	s_data
 	int		c_switch;
 	double	shift_x;
 	double	shift_y;
-	int		cursor_x;
-	int		cursor_y;
+	int		min_x;
+	int		min_y;
+	int		max_x;
+	int		max_y;
 	double	zoom;
 	double	julia_a;
 	double	julia_b;
@@ -57,7 +59,7 @@ void	init_mandelbrot(t_data *data);
 void	init_julia(t_data *data, char **argv);
 void	init_burning_ship(t_data *data);
 void	mandelbrot(t_data *data);
-double	scale(double val, double fmin, double fmax, double tmin, double tmax);
+double	scale(double val, double fm[2], double tmin, double tmax);
 int		plot_mandelbrot(double a, double b, t_data *data);
 void	plot_image(t_data *data, int (*plot_func)(double, double, t_data *));
 int		handle_key(int keysym, t_data *data);

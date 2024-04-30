@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:15 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 18:29:36 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:06:28 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	main(int argc, char **argv)
 		init_burning_ship(&data);
 	else
 	{
-		ft_printf("Invalid Input.\nAvailable options: \n\t \
-				Mandelbrot\n\t Julia <arg1> <arg2>\n\t Burningship\n");
+		ft_printf("Invalid Input.\nAvailable options: \
+		\n\t Mandelbrot\n\t Julia <arg1> <arg2>\n\t Burningship\n");
 		exit (1);
 	}
 	events_init(&data);

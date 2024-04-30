@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:11:57 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 18:27:24 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:33:42 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ void	initialize_mlx(t_data *data, char *name)
 	data->shift_x = 0;
 	data->shift_y = 0;
 	data->zoom = 1;
-	data->cursor_x = 0;
-	data->cursor_y = 0;
 }
 
 void	init_mandelbrot(t_data *data)
 {
 	initialize_mlx(data, "Mandelbrot");
 	data->fractal = 1;
+	data->min_x = -2;
+	data->max_x = 2;
+	data->min_y = 2;
+	data->max_y = -2;
 	mandelbrot(data);
 }
 
@@ -45,6 +47,10 @@ void	init_julia(t_data *data, char **argv)
 	data->julia_a = ft_atof(argv[2], data);
 	data->julia_b = ft_atof(argv[3], data);
 	data->fractal = 2;
+	data->min_x = 2;
+	data->max_x = -2;
+	data->min_y = -2;
+	data->max_y = 2;
 	julia(data);
 }
 
@@ -52,5 +58,9 @@ void	init_burning_ship(t_data *data)
 {
 	initialize_mlx(data, "Burning Ship");
 	data->fractal = 3;
+	data->min_x = -2;
+	data->max_x = 2;
+	data->min_y = -2;
+	data->max_y = 2;
 	burning_ship(data);
 }

@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:29:11 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 18:28:15 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:10:01 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	plot_julia(double a, double b, t_data *data)
 	double	y2;
 	int		i;
 
-	x = (scale(a, 0, WINDOW_WIDTH - 1, 2, -2) * data->zoom) + data->shift_x;
-	y = (scale(b, 0, WINDOW_HEIGHT - 1, -2, 2) * data->zoom) + data->shift_y;
+	x = (scale(a, (double []){0, WINDOW_WIDTH - 1}, \
+					data->min_x, data->max_x) * data->zoom) + data->shift_x;
+	y = (scale(b, (double []){0, WINDOW_HEIGHT - 1}, \
+					data->min_y, data->max_y) * data->zoom) + data->shift_y;
 	a = data->julia_a;
 	b = data->julia_b;
 	x2 = x * x;

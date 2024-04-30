@@ -6,15 +6,15 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:39:20 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/29 18:36:46 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:14:29 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-double	scale(double val, double fmin, double fmax, double tmin, double tmax)
+double	scale(double val, double fm[2], double tmin, double tmax)
 {
-	return (tmin + (val - fmin) * (tmax - tmin) / (fmax - fmin));
+	return (tmin + (val - fm[0]) * (tmax - tmin) / (fm[1] - fm[0]));
 }
 
 double	ft_atof(char *str, t_data *data)
