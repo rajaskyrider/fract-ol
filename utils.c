@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:39:20 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/30 15:14:29 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/05/01 09:54:22 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@ double	scale(double val, double fm[2], double tmin, double tmax)
 	return (tmin + (val - fm[0]) * (tmax - tmin) / (fm[1] - fm[0]));
 }
 
+int	sign_check(char **str)
+{
+	int	sign;
+
+	sign = 1;
+	if (**str == '-')
+	{
+		sign = -1;
+		(*str)++;
+	}
+	else if (**str == '+')
+		(*str)++;
+	return (sign);
+}
+
 double	ft_atof(char *str, t_data *data)
 {
 	double	ans;
@@ -25,14 +40,7 @@ double	ft_atof(char *str, t_data *data)
 
 	ans = 0;
 	d = 1.0;
-	sign = 1;
-	if (*str == '-')
-	{
-		sign = -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
+	sign = sign_check(&str);
 	while (*str && *str >= '0' && *str <= '9')
 	{
 		ans = ans * 10 + (*str - '0');

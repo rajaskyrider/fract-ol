@@ -6,12 +6,11 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 16:23:44 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/04/30 15:50:08 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/05/01 09:54:06 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "stdio.h"
 
 void	re_render(t_data *data)
 {
