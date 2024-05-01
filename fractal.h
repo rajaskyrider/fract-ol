@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 09:21:29 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/05/01 10:04:08 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:42:37 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,6 @@ typedef struct s_data
 	int		rx;
 	int		ry;
 }	t_data;
-
-typedef struct s_color
-{
-	unsigned char	r;
-	unsigned char	g;
-	unsigned char	b;
-	unsigned char	a;
-}	t_color;
 
 void	init_mandelbrot(t_data *data);
 void	init_julia(t_data *data, char **argv);

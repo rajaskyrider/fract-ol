@@ -6,7 +6,7 @@
 /*   By: rpandipe <rpandipe.student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:39:20 by rpandipe          #+#    #+#             */
-/*   Updated: 2024/05/01 09:54:22 by rpandipe         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:42:50 by rpandipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int	sign_check(char **str)
 	else if (**str == '+')
 		(*str)++;
 	return (sign);
+}
+
+void	print_error(t_data *data)
+{
+	ft_printf("Please enter valid arguments for Julia set.\n");
+	destroy_mlx(data);
 }
 
 double	ft_atof(char *str, t_data *data)
@@ -57,6 +63,6 @@ double	ft_atof(char *str, t_data *data)
 		}
 	}
 	if (*str != 0)
-		destroy_mlx(data);
+		print_error(data);
 	return (sign * ans);
 }
